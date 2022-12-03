@@ -12,9 +12,11 @@ fs.readFile('./input.txt', 'utf8', (err, data) => {
     let sum2 = 0;
     let group = [];
     lines.forEach(line => {
+        // form groups for part 2
         if (group.length < 3) {
             group.push(line);
         }
+        // part 1
         const comp1 = line.substring(0, line.length / 2);
         const comp2 = line.substring(line.length / 2);
         let checked = [];
@@ -33,6 +35,7 @@ fs.readFile('./input.txt', 'utf8', (err, data) => {
         const priority1 = dupe1Ascii >= 97 && dupe1Ascii <= 122 ? (dupe1Ascii - 96) : (dupe1Ascii - 64 + 26);
         sum1 += priority1;
 
+        // part 2
         if (group.length === 3) {
             checked = [];
             let dupe2 = '';
@@ -51,6 +54,7 @@ fs.readFile('./input.txt', 'utf8', (err, data) => {
             group = [];
         }
     });
+    // results
     console.log(sum1);
     console.log(sum2);
 });
