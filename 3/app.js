@@ -1,4 +1,5 @@
 const fs = require('fs');
+// listen. after the fact, having compared solutions, I am now ashamed of the next line. didn't know string.charCodeAt() was a thing. let me live pls
 const charToAscii = require('char-to-ascii');
 
 fs.readFile('./input.txt', 'utf8', (err, data) => {
