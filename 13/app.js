@@ -9,6 +9,7 @@ fs.readFile('./input.txt', 'utf8', (err, data) => {
     lines = lines.filter(el => el !== '');
 
     // helper method
+    // returns true if right order, false if wrong order, undefined if same
     const rightOrder = (arr1, arr2) => {
         let count = 0;
         while (count < arr1.length && count < arr2.length) {
