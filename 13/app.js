@@ -65,21 +65,12 @@ fs.readFile('./input.txt', 'utf8', (err, data) => {
         const list1 = JSON.parse(a);
         const list2 = JSON.parse(b);
         const right = rightOrder(list1, list2);
-        const test = ['[[],[10,3,1],[[[9,5,10,10,5],[4,1],5,6,10],0]]', '[[[]]]'];
-        if (test.includes(a) && test.includes(b)) {
-            console.log(a);
-            console.log(b);
-            console.log(right);
-        }
-
         if ([true, undefined].includes(right)) {
             return -1;
         } else {
             return 1;
         }
     });
-    const util = require('util');
-    console.log(util.inspect(sorted, false, null, true));
     const dividerPos1 = sorted.indexOf('[[2]]') + 1;
     const dividerPos2 = sorted.indexOf('[[6]]') + 1;
     const decodeKey = dividerPos1 * dividerPos2;
