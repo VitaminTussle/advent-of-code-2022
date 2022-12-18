@@ -13,7 +13,7 @@ fs.readFile('./input.txt', 'utf8', (err, data) => {
     }
     // I only did part 1 today because I started 2 hours late and am also just kinda losing the spirit of the thing
     // part 2 doesn't seem all that hard but I don't really feel like doing it
-    // O(n^2) isn't the best but I pooped this code out in like 2 minutes and got a right answer after a quarter second
+    // O(n^2) isn't the best but I splattered this code out in like 2 minutes and got a right answer after a quarter second
     //   of runtime so if I had actually started on time my leaderboard placement for part 1 would be insanely high
     // anyway gooooooooood morning vietnam considering time zones
     // im out
