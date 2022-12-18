@@ -72,8 +72,8 @@ fs.readFile('./input.txt', 'utf8', (err, data) => {
     } else {
         // part 2
 
+        // hahaha I let this run overnight and it didn't finish, then I optimized it and let it run for like 3 hours and got a wrong answer, I'm done with it for now
         const getRoutes = (meValve, eleValve, meParent, eleParent, minsLeft = 26, currPpm = 0, total = 0, visited = []) => {
-            // if (minsLeft && minsLeft >= 20) console.log(minsLeft);
             if (minsLeft <= 0) {
                 return total;
             }
@@ -117,111 +117,5 @@ fs.readFile('./input.txt', 'utf8', (err, data) => {
         };
         const results = getRoutes('AA', 'AA', '', '');
         console.log(results);
-
-        // const getRoutes = (meProps, eleProps, visited) => {
-        //     const ret = {
-        //         me: null,
-        //         ele: null
-        //     };
-        //     let newMe = {};
-        //     let newEle = {};
-        //     for (const prop in meProps) {
-        //         newMe[prop] = meProps[prop];
-        //         newEle[prop] = eleProps[prop];
-        //     }
-        //     let newVisited = [];
-        //     for (const v of visited) {
-        //         newVisited.push(v);
-        //     }
-        //     // open valves for Me if necessary
-        //     if (valves[meProps.valve].rate > 0 && meProps.minsLeft > 0 && !newVisited.includes(meProps.valve)) {
-        //         newMe.total += newMe.currPpm;
-        //         newMe.currPpm += valves[meProps.valve].rate;
-        //         newMe.minsLeft--;
-        //         newVisited.push(meProps.valve);
-        //     }
-        //     if (newMe.minsLeft <= 0) {
-        //         ret.me = {
-        //             total: newMe.total,
-        //             path: meProps.valve
-        //         };
-        //     }
-        //     // open valves for Elephant if necessary
-        //     if (valves[eleProps.valve].rate > 0 && eleProps.minsLeft > 0 && !newVisited.includes(eleProps.valve)) {
-        //         newEle.total += newEle.currPpm;
-        //         newEle.currPpm += valves[eleProps.valve].rate;
-        //         newEle.minsLeft--;
-        //         newVisited.push(eleProps.valve);
-        //     }
-        //     if (newEle.minsLeft <= 0) {
-        //         ret.ele = {
-        //             total: newEle.total,
-        //             path: eleProps.valve
-        //         };
-        //     }
-        //     if (ret.me && ret.ele) {
-        //         return ret;
-        //     }
-        //     // try... every... path... combination.........
-        //     // look, I'm not proud of this ok, my fingers are just running while my mind tries to go to sleep
-        //     const paths = [];
-        //     for (const v of valves[meProps.valve].paths) {
-        //         if (v !== meProps.parent && v !== meProps.valve && newMe.minsLeft > 0) {
-        //             newMe.valve = (newMe.minsLeft > 0 ? v : meProps.valve);
-        //             newMe.minsLeft -= (newMe.minsLeft > 0 ? 1 : 0);
-        //             newMe.total += (newMe.minsLeft > 0 ? newMe.currPpm : 0);
-        //             newMe.parent = (newMe.minsLeft > 0 ? meProps.valve : meProps.parent);
-        //         }
-        //         for (const v2 of valves[eleProps.valve].paths) {
-        //             if (v2 !== eleProps.parent && v2 !== newMe.valve && newEle.minsLeft > 0) {
-        //                 newEle.valve = (newEle.minsLeft > 0 ? v2 : eleProps.valve);
-        //                 newEle.minsLeft -= (newEle.minsLeft > 0 ? 1 : 0);
-        //                 newEle.total += (newEle.minsLeft > 0 ? newEle.currPpm : 0);
-        //                 newEle.parent = (newEle.minsLeft > 0 ? eleProps.valve : eleProps.parent);
-        //                 const routeOutput = getRoutes(newMe, newEle, newVisited);
-        //                 paths.push(routeOutput);
-        //             }
-        //         }
-        //     }
-        //     if (!paths.length) {
-        //         newMe.valve = meProps.parent;
-        //         newMe.minsLeft -= (newMe.minsLeft > 0 ? 1 : 0);
-        //         newMe.total += (newMe.minsLeft > 0 ? newMe.currPpm : 0);
-        //         newMe.parent = meProps.valve;
-        //         newEle.valve = eleProps.parent;
-        //         newEle.minsLeft -= (newEle.minsLeft > 0 ? 1 : 0);
-        //         newEle.total += (newEle.minsLeft > 0 ? newEle.currPpm : 0);
-        //         newEle.parent = eleProps.valve;
-        //         const routeOutput = getRoutes(newMe, newEle, newVisited);
-        //         paths.push(routeOutput);
-        //     }
-        //     const sorted = paths.sort((a, b) => a.me.total + a.ele.total > b.me.total + b.ele.total ? -1 : 1);
-        //     const best = sorted[0];
-        //     best.me.path = meProps.valve + ' ' + best.me.path;
-        //     best.ele.path = eleProps.valve + ' ' + best.ele.path;
-        //     ret.me = ret.me ?? best.me;
-        //     ret.ele = ret.ele ?? best.ele;
-        //     return ret;
-        // };
-        // console.log('part 2:');
-        // const startingMeProps = {
-        //     valve: 'AA',
-        //     parent: '',
-        //     currPpm: 0,
-        //     total: 0,
-        //     minsLeft: 26
-        // };
-        // // don't want a shallow copy that would be bad
-        // const startingEleProps = {
-        //     valve: 'AA',
-        //     parent: '',
-        //     currPpm: 0,
-        //     total: 0,
-        //     minsLeft: 26
-        // }
-        // const results = getRoutes(startingMeProps, startingEleProps, []);
-        // const util = require('util');
-        // console.log(util.inspect(results, false, null, true));
-        // console.log(results.me.total + results.ele.total);
     }
 });
